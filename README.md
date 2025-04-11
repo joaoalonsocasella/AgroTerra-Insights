@@ -1,12 +1,11 @@
 # 🛰️ AgroTerra Insights – Coleta Inteligente de Dados Imobiliários Rurais
 
-## 🌱 Visão Geral
+## Visão Geral
 
 **AgroTerra Insights** é um projeto de **inteligência de mercado voltado à compra estratégica de terrenos agrícolas no Centro-Oeste brasileiro** (Goiás, Mato Grosso, Mato Grosso do Sul e Distrito Federal). Utiliza **webscraping automatizado** para coletar dados de imóveis rurais anunciados em portais especializados, permitindo **análises comparativas**, **avaliações de valor de mercado** e cruzamentos com dados agronômicos, climáticos e logísticos.
 
----
 
-## 🎯 Objetivo
+## Objetivo
 
 Desenvolver um sistema confiável e expansível que:
 
@@ -15,9 +14,9 @@ Desenvolver um sistema confiável e expansível que:
 - Permite cruzamento com indicadores de solo, clima, logística e preço de commodities;
 - Apoia decisões de compra de propriedades com alto potencial produtivo e bom custo-benefício.
 
----
 
-## 🗺️ Escopo Geográfico
+
+## Escopo Geográfico
 
 Foco inicial:
 
@@ -28,9 +27,9 @@ Foco inicial:
 
 Com corte por municípios com forte atuação agrícola, logística desenvolvida ou expansão recente de fronteira agrícola.
 
----
 
-## 🛠️ Tecnologias Utilizadas
+
+## Tecnologias Utilizadas
 
 - **Linguagem:** Python
 - **Webscraping:** `requests`, `BeautifulSoup`, `Selenium`
@@ -45,9 +44,8 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
   - MapBiomas (uso da terra)
 - **Painel Interativo (futuro):** `streamlit` ou `dash`
 
----
 
-## 🔍 Fontes de Dados Coletadas
+## Fontes de Dados Coletadas
 
 | Fonte                        | Tipo de Dado                                 | Observações                                                               |
 |-----------------------------|----------------------------------------------|--------------------------------------------------------------------------|
@@ -59,9 +57,9 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
 | IBGE                        | Infraestrutura, densidade agrícola            | Dados municipais para análise de produtividade e contexto regional       |
 | OpenStreetMap (OSM)         | Infraestrutura viária                         | Distância a rodovias, ferrovias e centros de escoamento                  |
 
----
 
-## 📊 Indicadores Relevantes para Decisão
+
+## Indicadores Relevantes para Decisão
 
 - Preço por hectare vs. média regional
 - Aptidão agrícola vs. tipo de cultura anunciada
@@ -73,5 +71,6 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
 
 ---
 
-## 📦 Organização do Projeto
+## Organização do Projeto
 
+agroterra-insights/ │ ├── scraping/ │ ├── portals/ # Scripts por portal de anúncios │ ├── utils/ # Funções auxiliares (tratamento, NLP, etc.) │ └── scheduler.py # Rotina de scraping │ ├── data/ │ ├── raw/ # Dados brutos coletados │ ├── processed/ # Dados limpos e padronizados │ └── external/ # Downloads de APIs externas (solo, clima, etc.) │ ├── analysis/ │ ├── matching_engine.py # Script de cruzamento entre variáveis │ └── indicators.ipynb # Geração de dashboards e gráficos │ ├── database/ │ ├── schema.sql # Tabelas e relacionamentos │ └── connection.py # Conexão com PostgreSQL │ └── README.md
