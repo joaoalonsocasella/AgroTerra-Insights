@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-**AgroTerra Insights** é um projeto de **inteligência de mercado voltado à compra estratégica de terrenos agrícolas no Centro-Oeste brasileiro** (Goiás, Mato Grosso, Mato Grosso do Sul e Distrito Federal). Utiliza **webscraping automatizado** para coletar dados de imóveis rurais anunciados em portais especializados, permitindo **análises comparativas**, **avaliações de valor de mercado** e cruzamentos com dados agronômicos, climáticos e logísticos.
+**AgroTerra Insights** é um projeto de **inteligência de mercado voltado à compra estratégica de terrenos agrícolas no Centro-Oeste brasileiro** (Goiás, Mato Grosso e Mato Grosso do Sul). Utiliza **webscraping automatizado** para coletar dados de imóveis rurais anunciados em portais especializados, permitindo **análises comparativas**, **avaliações de valor de mercado** e cruzamentos com dados agronômicos, climáticos e logísticos.
 
 
 ## Objetivo
@@ -23,7 +23,6 @@ Foco inicial:
 - Goiás
 - Mato Grosso
 - Mato Grosso do Sul
-- Distrito Federal
 
 Com corte por municípios com forte atuação agrícola, logística desenvolvida ou expansão recente de fronteira agrícola.
 
@@ -32,7 +31,7 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
 ## Tecnologias Utilizadas
 
 - **Linguagem:** Python
-- **Webscraping:** `requests`, `BeautifulSoup`, `Selenium`
+- **Webscraping:** `requests`, `Playwright`
 - **Armazenamento:** PostgreSQL (estrutura relacional e espacial com PostGIS)
 - **ETL & Pipeline:** `pandas`, `sqlalchemy`, `luigi` ou `airflow`
 - **Georreferenciamento & Mapas:** `geopandas`, `shapely`, `folium`
@@ -47,10 +46,10 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
 
 ## Fontes de Dados Coletadas
 
-| Fonte                        | Tipo de Dado                                 | Observações                                                               |
-|-----------------------------|----------------------------------------------|--------------------------------------------------------------------------|
+| Fonte                       | Tipo de Dado                                  | Observações                                                              |
+|-----------------------------|-----------------------------------------------|--------------------------------------------------------------------------|
 | Portais Imobiliários        | Preço, área, localização, cultura, fotos      | Padronização via NLP devido à estrutura variável                         |
-| SIGEF e SNCR                | Regularização fundiária, georreferenciamento | Avaliação de risco jurídico e formal da terra                            |
+| SIGEF e SNCR                | Regularização fundiária, georreferenciamento  | Avaliação de risco jurídico e formal da terra                            |
 | EMBRAPA Solos               | Aptidão agrícola, textura, fertilidade        | Cruzamento via coordenadas geográficas                                   |
 | INMET e NASA POWER          | Clima histórico (chuva, temperatura)          | Avaliação de risco climático                                             |
 | MapBiomas                   | Uso da terra, desmatamento                    | Detecção de áreas degradadas ou recém-desmatadas                         |
@@ -73,4 +72,24 @@ Com corte por municípios com forte atuação agrícola, logística desenvolvida
 
 ## Organização do Projeto
 
-agroterra-insights/ │ ├── scraping/ │ ├── portals/ # Scripts por portal de anúncios │ ├── utils/ # Funções auxiliares (tratamento, NLP, etc.) │ └── scheduler.py # Rotina de scraping │ ├── data/ │ ├── raw/ # Dados brutos coletados │ ├── processed/ # Dados limpos e padronizados │ └── external/ # Downloads de APIs externas (solo, clima, etc.) │ ├── analysis/ │ ├── matching_engine.py # Script de cruzamento entre variáveis │ └── indicators.ipynb # Geração de dashboards e gráficos │ ├── database/ │ ├── schema.sql # Tabelas e relacionamentos │ └── connection.py # Conexão com PostgreSQL │ └── README.md
+agroterra-insights/
+│
+├── scraping/
+│   ├── portals/            # Scripts por portal de anúncios
+│   ├── utils/              # Funções auxiliares (tratamento, NLP, etc.)
+│   └── scheduler.py        # Rotina de scraping
+│
+├── data/
+│   ├── raw/                # Dados brutos coletados
+│   ├── processed/          # Dados limpos e padronizados
+│   └── external/           # Downloads de APIs externas (solo, clima, etc.)
+│
+├── analysis/
+│   ├── matching_engine.py  # Script de cruzamento entre variáveis
+│   └── indicators.ipynb    # Geração de dashboards e gráficos
+│
+├── database/
+│   ├── schema.sql          # Tabelas e relacionamentos
+│   └── connection.py       # Conexão com PostgreSQL
+│
+└── README.md
